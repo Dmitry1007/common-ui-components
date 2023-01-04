@@ -16,9 +16,9 @@ function Button({
 
   const classes = className("px-3 py-1.5 border", {
     "border-blue-500 bg-blue-500 text-white": primary,
-    "border-pink-900 bg-pink-900 text-white": secondary,
-    "border-green-700 bg-green-700 text-white": success,
-    "border-yellow-600 bg-yellow-600 text-white": warning,
+    "border-blue-200 bg-blue-200 text-white": secondary,
+    "border-green-600 bg-green-600 text-white": success,
+    "border-yellow-400 bg-yellow-400 text-white": warning,
     "border-red-500 bg-red-500 text-white": danger,
   });
 
