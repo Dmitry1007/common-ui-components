@@ -4,7 +4,7 @@ function App() {
   return (
     <div>
       <div>
-        <Button>Click</Button>
+        <Button primary secondary>Click</Button>
       </div>
       <div>
         <Button>Push</Button>
