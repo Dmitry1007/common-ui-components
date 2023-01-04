@@ -1,3 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+/* find all buttons with an immediate child of svg */
+button > svg {
+  margin-right: 5px;
+}
