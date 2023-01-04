@@ -14,7 +14,7 @@ function App() {
         </Button>
       </div>
       <div>
-        <Button secondary outline>
+        <Button secondary>
           Secondary
         </Button>
       </div>
