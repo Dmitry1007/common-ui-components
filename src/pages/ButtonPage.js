@@ -1,7 +1,7 @@
-import Button from './components/Button';
-import { GoCloudDownload, GoDatabase, GoZap, GoStop } from 'react-icons/go';
+import Button from "../components/Button";
+import { GoCloudDownload, GoDatabase, GoZap, GoStop } from "react-icons/go";
 
-function App() {
+function ButtonPage() {
   const handleClick = () => {
     console.log("Clicked!");
   };
@@ -30,9 +30,7 @@ function App() {
         </Button>
       </div>
       <div>
-        <Button success>
-          Success
-        </Button>
+        <Button success>Success</Button>
       </div>
       <div>
         <Button warning outline>
@@ -48,6 +46,6 @@ function App() {
       </div>
     </div>
   );
-}
+}.
 
-export default App;
+export default ButtonPage;
