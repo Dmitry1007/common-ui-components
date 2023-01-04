@@ -1,4 +1,7 @@
+// Not using the prop-types package
+// Bc we don't have any default checks yet
 // import PropTypes from 'prop-types';
+// import classname from 'classnames';
 
 function Button({ 
   children,
@@ -12,7 +15,7 @@ function Button({
 }) {
 
   return (
-    <button>{children}</button>
+    <button className="px-3 py-1.5 border border-blue-600 bg-blue-500 text-white">{children}</button>
   )
 }
 
