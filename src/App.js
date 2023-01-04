@@ -13,7 +13,7 @@ function App() {
   return (
     <div>
       <div>
-        <Button onClick={handleClick}>
+        <Button onClick={handleClick} className="mb-3">
           Plain
         </Button>
       </div>

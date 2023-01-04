@@ -15,7 +15,7 @@ function Button({
   ...rest
 }) {
 
-  const classes = className("flex items-center px-3 py-1.5 border", {
+  const classes = className(rest.className, "flex items-center px-3 py-1.5 border", {
     "border-blue-500 bg-blue-500 text-white": primary,
     "border-blue-200 bg-blue-200 text-white": secondary,
     "border-green-600 bg-green-600 text-white": success,
