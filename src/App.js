@@ -1,9 +1,13 @@
 import Button from './Button';
-import { GoBell, GoCloudDownload, GoDatabase, GoZap, GoStop } from 'react-icons/go';
+import { GoCloudDownload, GoDatabase, GoZap, GoStop } from 'react-icons/go';
 
 function App() {
   const handleClick = () => {
     console.log("Clicked!");
+  };
+
+  const handleMouseEnter = () => {
+    console.log("Mouse entered!");
   };
 
   return (
@@ -20,7 +24,7 @@ function App() {
         </Button>
       </div>
       <div>
-        <Button secondary>
+        <Button onMouseEnter={handleMouseEnter} secondary>
           <GoDatabase />
           Secondary
         </Button>
