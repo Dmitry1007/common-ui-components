@@ -1,51 +1,25 @@
-import Button from './components/Button';
-import { GoCloudDownload, GoDatabase, GoZap, GoStop } from 'react-icons/go';
+import React from 'react';
+import Accordion from './components/Accordion';
 
 function App() {
-  const handleClick = () => {
-    console.log("Clicked!");
-  };
-
-  const handleMouseEnter = () => {
-    console.log("Mouse entered!");
-  };
+  const items = [
+    {
+      label: 'What is React all about?',
+      content: 'React is a front-end JavaScript framework. It is used to build user interfaces. It is maintained by Facebook and a community of individual developers and companies.'
+    },
+    {
+      label: 'Why use React?',
+      content: 'React is a favorite JavaScript library among engineers. It is used by Facebook and Instagram. It is one of the fastest-growing libraries and has a strong foundation and large community behind it.'
+    },
+    {
+      label: 'How do you use React?',
+      content: 'You use React by creating components. Components are JavaScript functions that return HTML.'
+    }
+  ];
 
   return (
     <div>
-      <div>
-        <Button onClick={handleClick} className="mb-3">
-          Plain
-        </Button>
-      </div>
-      <div>
-        <Button primary rounded outline>
-          <GoCloudDownload />
-          Primary
-        </Button>
-      </div>
-      <div>
-        <Button onMouseEnter={handleMouseEnter} secondary>
-          <GoDatabase />
-          Secondary
-        </Button>
-      </div>
-      <div>
-        <Button success>
-          Success
-        </Button>
-      </div>
-      <div>
-        <Button warning outline>
-          <GoZap />
-          Warning
-        </Button>
-      </div>
-      <div>
-        <Button danger rounded>
-          <GoStop />
-          Danger
-        </Button>
-      </div>
+      <Accordion items={items} />
     </div>
   );
 }
