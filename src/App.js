@@ -20,9 +20,11 @@ function App() {
   //   }
   // ];
 
+  const colors = ["Red", "Green", "Blue"];
+
   return (
     <div>
-      <DropDown />
+      <DropDown options={colors} />
     </div>
   );
 }
