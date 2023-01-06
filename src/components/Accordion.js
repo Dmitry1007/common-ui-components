@@ -1,17 +1,23 @@
 import React from 'react';
+import { useState } from 'react';
 
 function Accordion({ items }) {
+  const [expandedIndex, setExpandedIndex] = useState(0);
+
   const renderedItems = items.map((item, index) => {
+    const isExpanded = index === expandedIndex;
+
+    if (index === expandedIndex) {
+      console.log('expanded');
+    } else {
+      console.log('collapsed');
+    }
+
     return (
-      <React.Fragment key={index}>
-        <div className="title active">
-          <i className="dropdown icon"></i>
-          {item.label}
-        </div>
-        <div className="content active">
-          <p>{item.content}</p>
-        </div>
-      </React.Fragment>
+      <div key={item.id}>
+        <div>{item.label}</div>
+        <div>{item.content}</div>
+      </div>
     );
   });
 
