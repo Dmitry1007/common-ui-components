@@ -1,6 +1,5 @@
 import { useState } from 'react'
 
-// First rough go at it, NOT the best way to do this
 function DropDown({ options }) {
   const [selectedColor, setSelectedColor] = useState('Selected...')
   const [showColors, setShowColors] = useState(false)
