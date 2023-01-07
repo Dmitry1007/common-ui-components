@@ -8,24 +8,17 @@ function DropDown({ options, onSelect, selection }) {
     setOpen(false)
   }
   
-  const renderedOptions = options.filter((option) => {
-    return option.value !== selection
-  }).map((option, index) => {
+  const renderedOptions = options.map((option, index) => {
     return (
-      <div onClick={() => handleOptionClick(option.value)} key={index}>
+      <div onClick={() => handleOptionClick(option)} key={index}>
         {option.value}
       </div>
     )
   })
 
-  let content = 'Select a Color'
-  if (selection) {
-    content = selection
-  }
-  
   return (
     <div>
-      <div onClick={() => setOpen(!open)}>{content}</div>
+      <div onClick={() => setOpen(!open)}>{ selection?.value || 'Select Color' }</div>
       {open ? renderedOptions : null}
     </div>
   )
