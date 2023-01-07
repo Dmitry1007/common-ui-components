@@ -1,19 +1,19 @@
 import { useState } from 'react'
 
 function DropDown({ options }) {
-  const [selectedColor, setSelectedColor] = useState('Selected...')
-  const [showColors, setShowColors] = useState(false)
+  const [selected, setSelected] = useState('Selected...')
+  const [show, setShow] = useState(false)
 
-  const handleSelectColor = (option) => {
-    setSelectedColor(option);
-    setShowColors(false);
+  const handleSelected = (option) => {
+    setSelected(option);
+    setShow(false);
   }
   
-  const renderColors = options.filter((option) => {
-    return option.value !== selectedColor
+  const renderOptions = options.filter((option) => {
+    return option.value !== selected
   }).map((option, index) => {
     return (
-      <div onClick={() => handleSelectColor(option.value)} key={index}>
+      <div onClick={() => handleSelected(option.value)} key={index}>
         {option.value}
       </div>
     );
@@ -21,8 +21,8 @@ function DropDown({ options }) {
 
   return (
     <div>
-      <div onClick={() => setShowColors(!showColors)}>{selectedColor}</div>
-      {showColors ? renderColors : null}
+      <div onClick={() => setShow(!show)}>{selected}</div>
+      {show ? renderOptions : null}
     </div>
   );
 }
