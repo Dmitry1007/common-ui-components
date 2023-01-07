@@ -1,30 +1,29 @@
 import { useState } from 'react'
 
-function DropDown({ options }) {
-  const [selected, setSelected] = useState('Selected...')
-  const [show, setShow] = useState(false)
+function DropDown({ options, onSelect, selection }) {
+  const [open, setOpen] = useState(false)
 
-  const handleSelected = (option) => {
-    setSelected(option);
-    setShow(false);
+  const handleOptionClick = (option) => {
+    onSelect(option)
+    setOpen(false)
   }
   
-  const renderOptions = options.filter((option) => {
-    return option.value !== selected
+  const renderedOptions = options.filter((option) => {
+    return option.value !== selection
   }).map((option, index) => {
     return (
-      <div onClick={() => handleSelected(option.value)} key={index}>
+      <div onClick={() => handleOptionClick(option.value)} key={index}>
         {option.value}
       </div>
-    );
+    )
   })
 
   return (
     <div>
-      <div onClick={() => setShow(!show)}>{selected}</div>
-      {show ? renderOptions : null}
+      <div onClick={() => setOpen(!open)}>{selection}</div>
+      {open ? renderedOptions : null}
     </div>
-  );
+  )
 }
 
 export default DropDown;
