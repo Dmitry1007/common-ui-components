@@ -10,11 +10,11 @@ function DropDown({ options }) {
   }
   
   const renderColors = options.filter((option) => {
-    return option !== selectedColor
+    return option.value !== selectedColor
   }).map((option, index) => {
     return (
-      <div onClick={() => handleSelectColor(option)} key={index}>
-        {option}
+      <div onClick={() => handleSelectColor(option.value)} key={index}>
+        {option.value}
       </div>
     );
   })
