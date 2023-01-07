@@ -2,7 +2,7 @@ import DropDown from '../components/DropDown'
 import { useState } from 'react'
 
 function DropDownPage () {
-  const [selection, setSelection] = useState("Select Option")
+  const [selection, setSelection] = useState(null)
 
   const handleSelect = (option) => {
     setSelection(option)

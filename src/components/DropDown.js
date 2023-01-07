@@ -18,9 +18,14 @@ function DropDown({ options, onSelect, selection }) {
     )
   })
 
+  let content = 'Select a Color'
+  if (selection) {
+    content = selection
+  }
+  
   return (
     <div>
-      <div onClick={() => setOpen(!open)}>{selection}</div>
+      <div onClick={() => setOpen(!open)}>{content}</div>
       {open ? renderedOptions : null}
     </div>
   )
