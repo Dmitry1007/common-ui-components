@@ -46,6 +46,6 @@ function ButtonPage() {
       </div>
     </div>
   );
-}.
+}
 
 export default ButtonPage;
