@@ -9,7 +9,5 @@ function Panel({ children, className, ...rest }) {
     </div>
   );
 }
-  
-}
 
 export default Panel;
