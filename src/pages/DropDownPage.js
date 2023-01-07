@@ -9,14 +9,14 @@ function DropDownPage () {
   };
 
   const options = [
-    { label: 'The Color Red', value: 'red' },
-    { label: 'The Color Blue', value: 'blue' },
-    { label: 'The Color Green', value: 'green'},
+    { label: 'Red', value: 'red' },
+    { label: 'Blue', value: 'blue' },
+    { label: 'Green', value: 'green'},
   ]
 
   return (
     <div>
-      <DropDown options={options} onSelect={handleSelect} selection={selection} />
+      <DropDown options={options} onChange={handleSelect} value={selection} />
     </div>
   );
 }
