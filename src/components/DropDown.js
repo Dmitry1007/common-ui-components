@@ -7,8 +7,10 @@ function DropDown({ options, onChange, value }) {
   const divEl = useRef();
 
   useEffect(() => {
-    const handler = () => {
-      console.log(divEl.current);
+    const handler = (event) => {
+      if (!divEl.current.contains(event.target)) {
+        setOpen(false);
+      }
     };
     document.addEventListener("click", handler, true);
     return () => {
