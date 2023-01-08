@@ -1,18 +1,18 @@
-import DropDown from '../components/DropDown'
-import { useState } from 'react'
+import DropDown from "../components/DropDown";
+import { useState } from "react";
 
-function DropDownPage () {
-  const [selection, setSelection] = useState(null)
+function DropDownPage() {
+  const [selection, setSelection] = useState(null);
 
   const handleSelect = (option) => {
-    setSelection(option)
+    setSelection(option);
   };
 
   const options = [
-    { label: 'Red', value: 'red' },
-    { label: 'Blue', value: 'blue' },
-    { label: 'Green', value: 'green'},
-  ]
+    { label: "Red", value: "red" },
+    { label: "Blue", value: "blue" },
+    { label: "Green", value: "green" },
+  ];
 
   return (
     <div className="flex">

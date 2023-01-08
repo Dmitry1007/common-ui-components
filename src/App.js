@@ -1,7 +1,7 @@
-import React from 'react';
+import React from "react";
 // import AccordionPage from './pages/AccordionPage';
 // import ButtonPage from './pages/ButtonPage';
-import DropDownPage from './pages/DropDownPage';
+import DropDownPage from "./pages/DropDownPage";
 
 function App() {
   return (
