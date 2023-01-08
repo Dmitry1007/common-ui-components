@@ -1,9 +1,16 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { GoChevronDown } from 'react-icons/go'
 import Panel from './Panel'
 
 function DropDown({ options, onChange, value }) {
   const [open, setOpen] = useState(false)
+
+  useEffect(() => {
+    const handler = (event) => {
+      console.log(event.target)
+    }
+    document.addEventListener('click', handler, true)
+  }, [])
 
   const handleOptionClick = (option) => {
     onChange(option)

@@ -15,13 +15,8 @@ function DropDownPage () {
   ]
 
   return (
-    <div>
-      <div>
-        <DropDown options={options} onChange={handleSelect} value={selection} />
-      </div>
-      <div>
-        <DropDown options={options} onChange={handleSelect} value={selection} />
-      </div>
+    <div className="flex">
+      <DropDown options={options} onChange={handleSelect} value={selection} />
     </div>
   );
 }
