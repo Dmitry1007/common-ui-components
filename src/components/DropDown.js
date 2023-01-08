@@ -1,13 +1,14 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { GoChevronDown } from "react-icons/go";
 import Panel from "./Panel";
 
 function DropDown({ options, onChange, value }) {
   const [open, setOpen] = useState(false);
+  const divEl = useRef();
 
   useEffect(() => {
-    const handler = (event) => {
-      console.log(event.target);
+    const handler = () => {
+      console.log(divEl.current);
     };
     document.addEventListener("click", handler, true);
     return () => {
@@ -33,7 +34,7 @@ function DropDown({ options, onChange, value }) {
   });
 
   return (
-    <div className="w-48 relative">
+    <div ref={divEl} className="w-48 relative">
       <Panel
         className="flex justify-between items-center cursor-pointer"
         onClick={() => setOpen(!open)}
