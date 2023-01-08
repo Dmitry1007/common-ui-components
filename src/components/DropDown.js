@@ -8,6 +8,8 @@ function DropDown({ options, onChange, value }) {
 
   useEffect(() => {
     const handler = (event) => {
+      if (!divEl.current) return;
+
       if (!divEl.current.contains(event.target)) {
         setOpen(false);
       }
