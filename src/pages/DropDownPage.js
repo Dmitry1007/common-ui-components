@@ -13,12 +13,14 @@ function DropDownPage() {
     { label: "Red", value: "red" },
     { label: "Blue", value: "blue" },
     { label: "Green", value: "green" },
+    { label: "Yellow", value: "yellow"},
+    { label: "Purple", value: "purple" },
   ];
 
   return (
     <div className="flex">
       <DropDown options={options} onChange={handleSelect} value={selection} />
-      <TailwindDropDown />
+      <TailwindDropDown options={options} />
     </div>
   );
 }
