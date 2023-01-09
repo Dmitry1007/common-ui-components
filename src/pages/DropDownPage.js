@@ -1,5 +1,6 @@
 import DropDown from "../components/DropDown";
 import { useState } from "react";
+import TailwindDropDown from "../components/TailwindDropDown";
 
 function DropDownPage() {
   const [selection, setSelection] = useState(null);
@@ -17,7 +18,7 @@ function DropDownPage() {
   return (
     <div className="flex">
       <DropDown options={options} onChange={handleSelect} value={selection} />
-      <DropDown options={options} onChange={handleSelect} value={selection} />
+      <TailwindDropDown />
     </div>
   );
 }
