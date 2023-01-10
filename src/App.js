@@ -1,14 +1,22 @@
 import React from "react";
-// import AccordionPage from './pages/AccordionPage';
-// import ButtonPage from './pages/ButtonPage';
-// import DropDownPage from "./pages/DropDownPage";
-import Link from "./components/Link";
+import ButtonPage from './pages/ButtonPage';
+import DropDownPage from "./pages/DropDownPage";
+import AccordionPage from './pages/AccordionPage';
+// import Link from "./components/Link";
+import Route from "./components/Route";
 
 function App() {
   return (
     <div>
-      <Link to="/dropdown">Dropdown</Link>
-      <Link to="/accordion">Accordion</Link>
+      <Route path="/buttonspage">
+        <ButtonPage />
+      </Route>
+      <Route path="/dropdown">
+        <DropDownPage />
+      </Route>
+      <Route path="/accordion">
+        <AccordionPage />
+      </Route>
     </div>
   );
 }
