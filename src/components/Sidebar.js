@@ -5,7 +5,11 @@ function SideBar({links}) {
     return <Link key={link.label} to={link.path}>{link.label}</Link>;
   });
 
-  return renderedLinks;
+  return (
+    <div className="sticky top-0 overflow-y-scroll flex flex-col">
+      {renderedLinks}
+    </div>
+  );
 } 
 
 export default SideBar;
