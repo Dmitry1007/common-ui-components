@@ -1,22 +1,26 @@
 import React from "react";
-import ButtonPage from "./pages/ButtonPage";
 import DropDownPage from "./pages/DropDownPage";
+import ButtonPage from "./pages/ButtonPage";
 import AccordionPage from "./pages/AccordionPage";
-import Link from "./components/Link";
 import Route from "./components/Route";
+import Sidebar from "./components/Sidebar";
 
 function App() {
+  const links = [
+    { label: "Dropdown", path: "/" },
+    { label: "Buttons", path: "/buttons" },
+    { label: "Accordion", path: "/accordion" },
+  ];
+
   return (
     <div>
-      <Link to="/buttons">Buttons</Link>
-      <Link to="/dropdown">DropDowns</Link>
-      <Link to="/accordion">Accordion</Link>
+      <Sidebar links={links} />
       <div>
+        <Route path="/">
+          <DropDownPage />
+        </Route>
         <Route path="/buttons">
           <ButtonPage />
-        </Route>
-        <Route path="/dropdown">
-          <DropDownPage />
         </Route>
         <Route path="/accordion">
           <AccordionPage />
