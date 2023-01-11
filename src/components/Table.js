@@ -1,5 +1,5 @@
-function Table() {
-  return <div>I am table hear me roar</div>;
+function Table({ data }) {
+  return <div>{data.length}</div>;
 }
 
 export default Table;
