@@ -5,20 +5,20 @@ function Table({ data }) {
 
   const renderedRows = data.map((row) => {
     return (
-      <tr key={row.name}>
-        <td className="border px-4 py-2">{row.name}</td>
-        <td className="border px-4 py-2">
+      <tr className="border-b" key={row.name}>
+        <td className="p-4">{row.name}</td>
+        <td className="p-4">
           <div className={`h-6 w-6 rounded-full ${row.color}`} />
         </td>
-        <td className="border px-4 py-2">{row.score}</td>
+        <td className="p-4">{row.score}</td>
       </tr>
     );
   });
 
   return (
-    <table className="table-auto">
+    <table className="table-auto border-spacing-2">
       <thead>
-        <tr>{renderedHeader}</tr>
+        <tr className="border-b-2">{renderedHeader}</tr>
       </thead>
       <tbody>{renderedRows}</tbody>
     </table>
