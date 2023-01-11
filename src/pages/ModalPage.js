@@ -21,7 +21,7 @@ function ModalPage() {
 
   const modal = (
     <Modal onClose={handleClose} actionBar={actionBar}>
-      <p>Listen up frend, it's time to make an important decision.</p>
+      <p>Listen up friends, it's time to make an important decision.</p>
     </Modal>
   );
 
