@@ -25,15 +25,38 @@ function SortableTable(props) {
     return {
       ...column,
       header: () => (
-        <th onClick={() => handleClick(column.label)}>
-          {column.label} IS Sortable
-        </th>
+        <th onClick={() => handleClick(column.label)}>{column.label}</th>
       ),
     };
   });
 
+  let sortedData = props.data;
+  if (sortOrder && sortBy) {
+    const { sortValue } = props.config.find(
+      (column) => column.label === sortBy
+    );
+
+    sortedData = [...props.data].sort((a, b) => {
+      const valueA = sortValue(a);
+      const valueB = sortValue(b);
+
+      const reverseOrder = sortOrder === "asc" ? 1 : -1;
+
+      if (typeof valueA === "string") {
+        return valueA.localeCompare(valueB) * reverseOrder;
+      } else {
+        return (valueA - valueB) * reverseOrder;
+      }
+    });
+  }
+
   // config will override props.config
-  return <Table {...props} config={updatedConfig} />;
+  return (
+    <div>
+      {sortOrder} - {sortBy}
+      <Table {...props} data={sortedData} config={updatedConfig} />
+    </div>
+  );
 }
 
 export default SortableTable;
