@@ -25,7 +25,10 @@ function SortableTable({ data, config, keyFn }) {
     return {
       ...column,
       header: () => (
-        <th onClick={() => handleClick(column.label)}>{column.label}</th>
+        <th onClick={() => handleClick(column.label)}>
+          {getIcons(column.label, sortBy, sortOrder)}
+          {column.label}
+        </th>
       ),
     };
   });
@@ -47,6 +50,20 @@ function SortableTable({ data, config, keyFn }) {
       }
     });
   }
+
+  const getIcons = (label, sortBy, sortOrder) => {
+    if (label !== sortBy) {
+      return "show both icons";
+    }
+
+    if (sortOrder === null) {
+      return "show both icons";
+    } else if (sortOrder === "asc") {
+      return "show up icon";
+    } else if (sortOrder === "desc") {
+      return "show down icon";
+    }
+  };
 
   return (
     <div>
