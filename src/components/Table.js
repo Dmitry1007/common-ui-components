@@ -4,11 +4,17 @@ function Table({ data, config }) {
   });
 
   const renderedRows = data.map((row) => {
+    const renderedCells = config.map((column) => {
+      return (
+        <td className="p-4" key={column.label}>
+          {column.render(row)}
+        </td>
+      );
+    });
+
     return (
-      <tr className="border-b" key={config[0].render(row)}>
-        <td className="p-4">{config[0].render(row)}</td>
-        <td className="p-4">{config[1].render(row)}</td>
-        <td className="p-4">{config[2].render(row)}</td>
+      <tr className="border-b" key={row.name}>
+        {renderedCells}
       </tr>
     );
   });
