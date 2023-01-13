@@ -24,7 +24,9 @@ function TablePage() {
     },
   ];
 
-  return <Table data={fruits} config={config} />;
+  const keyFn = (fruit) => fruit.name;
+
+  return <Table data={fruits} config={config} keyFn={keyFn} />;
 }
 
 export default TablePage;
