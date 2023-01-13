@@ -9,7 +9,20 @@ function TablePage() {
     { name: "Grape", color: "bg-purple-500", score: 2 },
   ];
 
-  const config = [{ label: "Name" }, { label: "Color" }, { label: "Score" }];
+  const config = [
+    { label: "Name", render: (fruit) => fruit.name },
+    {
+      label: "Color",
+      render: (fruit) => (
+        <div className={`h-6 w-6 rounded-full ${fruit.color}`} />
+      ),
+    },
+    {
+      label: "Score",
+      render: (fruit) => fruit.score,
+      sort: (a, b) => a.score - b.score,
+    },
+  ];
 
   return <Table data={fruits} config={config} />;
 }

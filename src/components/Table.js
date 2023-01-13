@@ -3,14 +3,12 @@ function Table({ data, config }) {
     return <th key={column.label}>{column.label}</th>;
   });
 
-  const renderedRows = data.map((row, index) => {
+  const renderedRows = data.map((row) => {
     return (
-      <tr className="border-b" key={row.name}>
-        <td className="p-4">{row.name}</td>
-        <td className="p-4">
-          <div className={`h-6 w-6 rounded-full ${row.color}`} />
-        </td>
-        <td className="p-4">{row.score}</td>
+      <tr className="border-b" key={config[0].render(row)}>
+        <td className="p-4">{config[0].render(row)}</td>
+        <td className="p-4">{config[1].render(row)}</td>
+        <td className="p-4">{config[2].render(row)}</td>
       </tr>
     );
   });
