@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Table from "./Table";
 
-function SortableTable(props) {
+function SortableTable({ data, config, keyFn }) {
   const [sortOrder, setSortOrder] = useState(null);
   const [sortBy, setSortBy] = useState(null);
 
@@ -18,7 +18,7 @@ function SortableTable(props) {
     }
   };
 
-  const updatedConfig = props.config.map((column) => {
+  const updatedConfig = config.map((column) => {
     if (!column.sortValue) {
       return column;
     }
@@ -30,13 +30,11 @@ function SortableTable(props) {
     };
   });
 
-  let sortedData = props.data;
+  let sortedData = data;
   if (sortOrder && sortBy) {
-    const { sortValue } = props.config.find(
-      (column) => column.label === sortBy
-    );
+    const { sortValue } = config.find((column) => column.label === sortBy);
 
-    sortedData = [...props.data].sort((a, b) => {
+    sortedData = [...data].sort((a, b) => {
       const valueA = sortValue(a);
       const valueB = sortValue(b);
 
@@ -50,11 +48,9 @@ function SortableTable(props) {
     });
   }
 
-  // config will override props.config
   return (
     <div>
-      {sortOrder} - {sortBy}
-      <Table {...props} data={sortedData} config={updatedConfig} />
+      <Table data={sortedData} config={updatedConfig} keyFn={keyFn} />
     </div>
   );
 }
