@@ -6,8 +6,12 @@ function TablePage() {
     { name: "Apple", color: "bg-red-300", score: 3 },
     { name: "Banana", color: "bg-yellow-500", score: 1 },
     { name: "Lime", color: "bg-green-500", score: 4 },
+    { name: "Grape", color: "bg-purple-500", score: 2 },
   ];
-  return <Table data={fruits} />;
+
+  const config = [{ label: "Name" }, { label: "Color" }, { label: "Score" }];
+
+  return <Table data={fruits} config={config} />;
 }
 
 export default TablePage;
