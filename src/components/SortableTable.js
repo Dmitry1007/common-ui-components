@@ -10,12 +10,15 @@ function SortableTable({ data, config, keyFn }) {
     if (sortOrder === null) {
       setSortOrder("asc");
       setSortBy(label);
-    } else if (sortOrder === "asc") {
+    } else if (sortOrder === "asc" && label === sortBy) {
       setSortOrder("desc");
       setSortBy(label);
-    } else if (sortOrder === "desc") {
+    } else if (sortOrder === "desc" && label === sortBy) {
       setSortOrder(null);
       setSortBy(null);
+    } else {
+      setSortOrder("asc");
+      setSortBy(label);
     }
   };
 
