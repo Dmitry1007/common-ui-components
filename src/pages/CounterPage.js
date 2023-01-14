@@ -8,20 +8,20 @@ function useCounter(initialCount) {
     console.log(count);
   }, [count]);
 
-  const handleClick = () => {
+  const increment = () => {
     setCount(count + 1);
   };
 
-  return { count, handleClick };
+  return { count, increment };
 }
 
 function CounterPage({ initialCount }) {
-  const { count, handleClick } = useCounter(initialCount);
+  const { count, increment } = useCounter(initialCount);
 
   return (
     <div>
       <h2>Count is {count}</h2>
-      <Button onClick={handleClick}>Increment</Button>
+      <Button onClick={increment}>Increment</Button>
     </div>
   );
 }
