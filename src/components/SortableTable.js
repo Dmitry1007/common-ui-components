@@ -84,11 +84,7 @@ function SortableTable({ data, config, keyFn }) {
     }
   };
 
-  return (
-    <div>
-      <Table data={sortedData} config={updatedConfig} keyFn={keyFn} />
-    </div>
-  );
+  return <Table data={sortedData} config={updatedConfig} keyFn={keyFn} />;
 }
 
 export default SortableTable;
