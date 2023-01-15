@@ -4,6 +4,12 @@ import Panel from "../components/Panel";
 
 const reducer = (state, action) => {
   console.log(state, action);
+  if (action.type === "increment-count") {
+    return {
+      ...state,
+      count: state.count + 1,
+    };
+  }
 };
 
 function CounterPage({ initialCount }) {
@@ -16,10 +22,12 @@ function CounterPage({ initialCount }) {
 
   const increment = () => {
     // setCount(count + 1);
+    dispatch({ type: "increment-count" });
   };
 
   const decrement = () => {
     // setCount(count - 1);
+    dispatch(-1);
   };
 
   const handleChange = (event) => {
