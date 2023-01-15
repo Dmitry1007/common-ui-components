@@ -1,3 +1,4 @@
+import produce from "immer";
 import { useReducer } from "react";
 import Button from "../components/Button";
 import Panel from "../components/Panel";
@@ -10,35 +11,27 @@ const ADD_VALUE_TO_COUNT = "add-value-to-count";
 const reducer = (state, action) => {
   switch (action.type) {
     case INCREMENT_COUNT:
-      return {
-        ...state,
-        count: state.count + 1,
-      };
+      state.count = state.count + 1;
+      return;
     case DECREMENT_COUNT:
-      return {
-        ...state,
-        count: state.count - 1,
-      };
+      state.count = state.count - 1;
+      return;
     case CHANGE_INPUT_VALUE:
-      return {
-        ...state,
-        valueToAdd: action.payload,
-      };
+      state.valueToAdd = action.payload;
+      return;
     case ADD_VALUE_TO_COUNT:
-      return {
-        ...state,
-        count: state.count + state.valueToAdd,
-        valueToAdd: 0,
-      };
+      state.count = state.count + state.valueToAdd;
+      state.valueToAdd = 0;
+      return;
     default:
-      return state;
+      return;
     // OR
     // throw new Error('unexpected action type: ' + action.type);
   }
 };
 
 function CounterPage({ initialCount }) {
-  const [state, dispatch] = useReducer(reducer, {
+  const [state, dispatch] = useReducer(produce(reducer), {
     count: initialCount,
     valueToAdd: 0,
   });
@@ -66,7 +59,7 @@ function CounterPage({ initialCount }) {
       <h2 className="text-lg">Count is {state.count}</h2>
       <div className="flex flex-row">
         <Button onClick={increment}>Increment</Button>
-        <Button onClick={decrement}>Increment</Button>
+        <Button onClick={decrement}>Decrement</Button>
       </div>
       <form onSubmit={handleSubmit}>
         <label>Add a number</label>
