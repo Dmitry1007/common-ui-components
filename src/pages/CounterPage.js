@@ -8,28 +8,32 @@ const CHANGE_VALUE = "change-value";
 const ADD_VALUE = "add-value";
 
 const reducer = (state, action) => {
-  if (action.type === INCREMENT_COUNT) {
-    return {
-      ...state,
-      count: state.count + 1,
-    };
-  } else if (action.type === DECREMENT_COUNT) {
-    return {
-      ...state,
-      count: state.count - 1,
-    };
-  } else if (action.type === CHANGE_VALUE) {
-    return {
-      ...state,
-      valueToAdd: action.payload,
-    };
-  } else if (action.type === ADD_VALUE) {
-    return {
-      ...state,
-      count: state.count + action.payload,
-    };
+  switch (action.type) {
+    case INCREMENT_COUNT:
+      return {
+        ...state,
+        count: state.count + 1,
+      };
+    case DECREMENT_COUNT:
+      return {
+        ...state,
+        count: state.count - 1,
+      };
+    case CHANGE_VALUE:
+      return {
+        ...state,
+        valueToAdd: action.payload,
+      };
+    case ADD_VALUE:
+      return {
+        ...state,
+        count: state.count + action.payload,
+      };
+    default:
+      return state;
+    // OR
+    // throw new Error('unexpected action type: ' + action.type);
   }
-  return state;
 };
 
 function CounterPage({ initialCount }) {
