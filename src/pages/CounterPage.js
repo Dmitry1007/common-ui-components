@@ -9,6 +9,11 @@ const reducer = (state, action) => {
       ...state,
       count: state.count + 1,
     };
+  } else if (action.type === "decrement-count") {
+    return {
+      ...state,
+      count: state.count - 1,
+    };
   }
 };
 
@@ -27,7 +32,7 @@ function CounterPage({ initialCount }) {
 
   const decrement = () => {
     // setCount(count - 1);
-    dispatch(-1);
+    dispatch({ type: "decrement-count" });
   };
 
   const handleChange = (event) => {
