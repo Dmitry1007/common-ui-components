@@ -18,6 +18,11 @@ const reducer = (state, action) => {
       ...state,
       valueToAdd: action.payload,
     };
+  } else if (action.type === "add-value") {
+    return {
+      ...state,
+      count: state.count + action.payload,
+    };
   }
 };
 
@@ -49,6 +54,7 @@ function CounterPage({ initialCount }) {
     event.preventDefault();
     // setCount(count + valueToAdd);
     // setValueToAdd(0);
+    dispatch({ type: "add-value", payload: state.valueToAdd });
   };
 
   return (
