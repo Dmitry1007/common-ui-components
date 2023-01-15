@@ -17,7 +17,12 @@ function CounterPage({ initialCount }) {
   const handleChange = (event) => {
     const value = parseInt(event.target.value) || 0;
     setValueToAdd(value);
-    console.log(value);
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    setCount(count + valueToAdd);
+    setValueToAdd(0);
   };
 
   return (
@@ -27,7 +32,7 @@ function CounterPage({ initialCount }) {
         <Button onClick={increment}>Increment</Button>
         <Button onClick={decrement}>Increment</Button>
       </div>
-      <form>
+      <form onSubmit={handleSubmit}>
         <label>Add a number</label>
         <input
           type="number"
